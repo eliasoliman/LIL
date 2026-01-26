@@ -1,280 +1,251 @@
-<script setup>
-import { ref, nextTick, watch } from 'vue';
-
-// --- STATO ---
-const userInput = ref('');
-const messages = ref([]);
-const isChatActive = ref(false);
-const chatContainer = ref(null);
-const isBotTyping = ref(false);
-
-// --- LOGICA ---
-
-// Funzione per scorrere in basso automaticamente
-const scrollToBottom = async () => {
-  await nextTick();
-  if (chatContainer.value) {
-    chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
-  }
-};
-
-// Osserva i messaggi e scrolla quando cambiano
-watch(messages, () => {
-  scrollToBottom();
-}, { deep: true });
-
-// Gestione invio messaggio
-const handleSend = () => {
-  const text = userInput.value.trim();
-  if (!text) return;
-
-  // 1. Attiva interfaccia chat se è il primo messaggio
-  if (!isChatActive.value) {
-    isChatActive.value = true;
-  }
-
-  // 2. Aggiungi messaggio utente
-  messages.value.push({
-    id: Date.now(),
-    text: text,
-    sender: 'user'
-  });
-
-  userInput.value = ''; // Pulisci input
-  isBotTyping.value = true;
-
-  // 3. Simula risposta Bot
-  setTimeout(() => {
-    const risposte = [
-      "Sto elaborando i dati richiesti...",
-      "Ho trovato una corrispondenza nei miei archivi.",
-      "Certamente. Ecco cosa posso dirti a riguardo.",
-      "Interessante punto di vista. Analizziamolo."
-    ];
-    const randomResp = risposte[Math.floor(Math.random() * risposte.length)];
-    
-    messages.value.push({
-      id: Date.now() + 1,
-      text: randomResp,
-      sender: 'bot'
-    });
-    
-    isBotTyping.value = false;
-  }, 1000);
-};
-</script>
-
 <template>
-  <v-app class="lexis-app">
-    
-    <v-app-bar flat height="80" class="chat-header">
-      <div class="brand">Lexis</div>
-    </v-app-bar>
+  <div class="app-container">
+    <header class="header">
+      <span class="logo">LEXIS</span>
+    </header>
 
-    <v-main class="main-area">
-      <v-container class="fill-height d-flex flex-column justify-center align-center position-relative">
-        
-        <transition name="fade">
-          <div v-if="!isChatActive" class="welcome-container text-center">
-            <h1>Ciao, Sono Lexis</h1>
-            <h2>Che gioco di parole posso creare per te?</h2>
+    <main class="main-content">
+      
+      <div v-if="!risultato && !loading" class="hero-section">
+        <h1 class="title">Ciao, Sono Lexis</h1>
+        <p class="subtitle">Che gioco di parole posso creare per te?</p>
+      </div>
+
+      <div v-if="risultato" class="result-container">
+        <div class="result-card">
+          <span class="result-label">RISULTATO</span>
+          <h2 class="result-output">{{ risultato.output }}</h2>
+          <div class="result-details">
+            <p><strong>Da:</strong> {{ risultato.originale }}</p>
+            <p><strong>Mix:</strong> {{ risultato.info }}</p>
           </div>
-        </transition>
+        </div>
+        <button @click="risultato = null" class="btn-reset">Crea un altro gioco</button>
+      </div>
 
-        <transition name="fade">
-          <div 
-            v-show="isChatActive" 
-            ref="chatContainer"
-            class="chat-messages"
-          >
-            <div class="messages-container">
-              <div 
-                v-for="msg in messages" 
-                :key="msg.id" 
-                :class="['message', msg.sender]"
-              >
-                {{ msg.text }}
-              </div>
-              
-              <div v-if="isBotTyping" class="message bot typing">
-                ...
-              </div>
-            </div>
-          </div>
-        </transition>
+      <div v-if="loading" class="loader-container">
+        <div class="spinner"></div>
+      </div>
+    </main>
 
-      </v-container>
-    </v-main>
-
-    <v-footer app height="100" class="footer-area">
+    <footer class="footer">
       <div class="input-wrapper">
         <input 
-          v-model="userInput" 
-          type="text" 
-          placeholder="Dimmi un Tema e una Categoria..." 
-          @keypress.enter="handleSend"
-          autocomplete="off"
+          v-model="query"
+          type="text"
+          placeholder="Dimmi un Tema e una Categoria..."
+          @keyup.enter="inviaRichiesta"
+          class="custom-input"
+        />
+        <button 
+          @click="inviaRichiesta"
+          :disabled="!query || loading"
+          class="send-button"
         >
-        <button @click="handleSend" class="send-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
           </svg>
         </button>
       </div>
-    </v-footer>
-  </v-app>
+    </footer>
+  </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+
+const query = ref('')
+const risultato = ref(null)
+const loading = ref(false)
+
+const inviaRichiesta = async () => {
+  if (!query.value || loading.value) return
+  loading.value = true
+  try {
+    const response = await axios.post('http://127.0.0.1:8000/genera', {
+      prompt: query.value
+    })
+    risultato.value = response.data
+    query.value = ''
+  } catch (err) {
+    alert("Errore di connessione al server.");
+  } finally {
+    loading.value = false
+  }
+}
+</script>
+
 <style scoped>
-/* --- STILI OVERRIDE/CUSTOM --- */
-/* Manteniamo i colori originali sovrascrivendo i default di Vuetify dove serve */
-
-.lexis-app {
-  background-color: #141416 !important;
-  color: #F3F4F6;
+/* Reset base */
+:global(body) {
+  margin: 0;
+  padding: 0;
+  background-color: #111111; /* Sfondo scuro come immagine */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
 }
 
-/* HEADER */
-.chat-header {
-  background-color: #141416 !important;
-  border-bottom: 1px solid #262629;
-  display: flex;
-  justify-content: center;
-}
-
-/* Per centrare il titolo nell'app bar di Vuetify */
-:deep(.v-toolbar__content) {
-  justify-content: center;
-}
-
-.brand {
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #F3F4F6;
-}
-
-/* WELCOME SCREEN */
-.welcome-container h1 {
-  color: #F3F4F6;
-  margin-bottom: 0.5rem;
-}
-
-.welcome-container h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #9CA3AF;
-}
-
-/* CHAT AREA */
-.chat-messages {
-  width: 100%;
-  max-width: 900px;
-  height: 100%;
-  overflow-y: auto;
-  padding: 20px 0;
-  /* Nascondi scrollbar nativa per estetica */
-  scrollbar-width: thin;
-  scrollbar-color: #363639 #141416;
-}
-
-.messages-container {
+.app-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-bottom: 20px;
+  min-height: 100vh;
 }
 
-.message {
-  max-width: 80%;
-  padding: 15px 25px;
-  border-radius: 20px;
-  font-size: 1rem;
-  line-height: 1.5;
-  animation: popIn 0.3s ease forwards;
-}
-
-@keyframes popIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.message.bot {
-  align-self: flex-start;
-  background-color: #262629;
-  color: #E5E7EB;
-  border: 1px solid #363639;
-}
-
-.message.user {
-  align-self: flex-end;
-  background-color: #4f46e5;
-  color: #FFFFFF;
-}
-
-/* FOOTER & INPUT */
-.footer-area {
-  background-color: #141416 !important;
+.header {
+  padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Allinea in alto nel footer */
+}
+
+.logo {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  margin-top: -100px; /* Alza il testo verso il centro alto */
+}
+
+.hero-section {
+  width: 100%;
+  max-width: 650px;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #888;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Container Risultato */
+.result-container {
+  width: 100%;
+  max-width: 650px;
+  animation: slideUp 0.4s ease-out;
+}
+
+.result-card {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #333;
+}
+
+.result-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+.result-output {
+  font-size: 48px;
+  margin: 15px 0;
+  color: #fff;
+}
+
+.result-details {
+  border-top: 1px solid #333;
   padding-top: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.btn-reset {
+  background: none;
+  border: none;
+  color: #555;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-reset:hover { color: #fff; }
+
+/* Barra di Input */
+.footer {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .input-wrapper {
+  position: relative;
   width: 100%;
-  max-width: 900px;
-  background-color: #1c1c1f;
-  border: 1px solid #363639;
-  border-radius: 50px;
-  padding: 8px 10px 8px 25px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 768px;
 }
 
-.input-wrapper input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  color: #F3F4F6;
-  padding: 10px 0;
-}
-
-.input-wrapper input::placeholder {
-  color: #6B7280;
-}
-
-.send-btn {
-  background-color: #4f46e5;
-  border: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.custom-input {
+  width: 100%;
+  background-color: #222222;
+  border: 1px solid #333;
+  border-radius: 18px;
+  padding: 18px 25px;
+  padding-right: 60px;
   color: white;
-  transition: background-color 0.2s;
-  margin-left: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border 0.3s;
 }
 
-.send-btn:hover {
-  background-color: #4338ca;
+.custom-input:focus {
+  outline: none;
+  border-color: #444;
 }
 
-/* Transizioni Vue */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s ease;
+.send-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #6366f1; /* Colore viola/blu della freccia */
+  border: none;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.send-button:disabled {
+  background-color: #333;
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #333;
+  border-top: 3px solid #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes slideUp { 
+  from { opacity: 0; transform: translateY(20px); } 
+  to { opacity: 1; transform: translateY(0); } 
 }
 </style>
