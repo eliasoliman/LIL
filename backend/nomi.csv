@@ -1,0 +1,925 @@
+Nome,Categoria
+Nitro,Cantante
+Salmo,Cantante
+Lazza,Cantante
+Marracash,Cantante
+Shiva,Cantante
+Fabri Fibra,Cantante
+Sfera Ebbasta,Cantante
+Guè,Cantante
+Madame,Cantante
+Rondodasosa,Cantante
+Geolier,Cantante
+Tedua,Cantante
+Ernia,Cantante
+Noyz Narcos,Cantante
+Capo Plaza,Cantante
+Tony Effe,Cantante
+Anna Pepe,Cantante
+Massimo Pericolo,Cantante
+Luchè,Cantante
+Emis Killa,Cantante
+Jake La Furia,Cantante
+Villabanks,Cantante
+Bresh,Cantante
+Rose Villain,Cantante
+Kid Yugi,Cantante
+Artie 5ive,Cantante
+PakY,Cantante
+Rhove,Cantante
+Blanco,Cantante
+Mahmood,Cantante
+Ghali,Cantante
+Achille Lauro,Cantante
+Rkomi,Cantante
+Irama,Cantante
+Annalisa,Cantante
+Elodie,Cantante
+Angelina Mango,Cantante
+The Kolors,Cantante
+Pinguini Tattici Nucleari,Cantante
+Coma_Cose,Cantante
+Calcutta,Cantante
+Franco126,Cantante
+Coez,Cantante
+Frah Quintale,Cantante
+Ariete,Cantante
+Tananai,Cantante
+Mr. Rain,Cantante
+Dargen D'Amico,Cantante
+Rosa Chemical,Cantante
+BigMama,Cantante
+Clara,Cantante
+Alfa,Cantante
+Il Tre,Cantante
+Fred De Palma,Cantante
+Baby K,Cantante
+Elettra Lamborghini,Cantante
+Boomdabash,Cantante
+Mina,Cantante
+Adriano Celentano,Cantante
+Vasco Rossi,Cantante
+Luciano Ligabue,Cantante
+Zucchero,Cantante
+Eros Ramazzotti,Cantante
+Laura Pausini,Cantante
+Tiziano Ferro,Cantante
+Giorgia,Cantante
+Elisa,Cantante
+Marco Mengoni,Cantante
+Emma Marrone,Cantante
+Alessandra Amoroso,Cantante
+Biagio Antonacci,Cantante
+Claudio Baglioni,Cantante
+Renato Zero,Cantante
+Gianna Nannini,Cantante
+Andrea Bocelli,Cantante
+Lucio Dalla,Cantante
+Fabrizio De André,Cantante
+Francesco De Gregori,Cantante
+Antonello Venditti,Cantante
+Rino Gaetano,Cantante
+Pino Daniele,Cantante
+Taylor Swift,Cantante
+Beyoncé,Cantante
+Drake,Cantante
+The Weeknd,Cantante
+Bad Bunny,Cantante
+Justin Bieber,Cantante
+Ed Sheeran,Cantante
+Ariana Grande,Cantante
+Harry Styles,Cantante
+Dua Lipa,Cantante
+Billie Eilish,Cantante
+Post Malone,Cantante
+Kendrick Lamar,Cantante
+Travis Scott,Cantante
+Eminem,Cantante
+Jay-Z,Cantante
+Kanye West,Cantante
+Rihanna,Cantante
+Lady Gaga,Cantante
+Bruno Mars,Cantante
+Adele,Cantante
+Coldplay,Cantante
+Imagine Dragons,Cantante
+Maneskin,Cantante
+Rosalía,Cantante
+J Balvin,Cantante
+Karol G,Cantante
+Apple,Brand
+Amazon,Brand
+Tesla,Brand
+Nike,Brand
+Adidas,Brand
+Disney,Brand
+Netflix,Brand
+Coca Cola,Brand
+Samsung,Brand
+Toyota,Brand
+Fanta,Brand
+Kinder,Brand
+Puma,Brand
+Zara,Brand
+IKEA,Brand
+Sony,Brand
+Starbucks,Brand
+McDonald's,Brand
+H&M,Brand
+Rolex,Brand
+Pepsi,Brand
+Red Bull,Brand
+Lego,Brand
+Gucci,Brand
+Prada,Brand
+Louis Vuitton,Brand
+Chanel,Brand
+Hermès,Brand
+Dior,Brand
+Versace,Brand
+Armani,Brand
+Valentino,Brand
+Dolce & Gabbana,Brand
+Fendi,Brand
+Balenciaga,Brand
+Givenchy,Brand
+Burberry,Brand
+Saint Laurent,Brand
+Cartier,Brand
+Tiffany & Co.,Brand
+Omega,Brand
+Patek Philippe,Brand
+Nestlé,Brand
+Unilever,Brand
+Procter & Gamble,Brand
+L'Oréal,Brand
+Danone,Brand
+Kellogg's,Brand
+Mars,Brand
+Ferrero,Brand
+Barilla,Brand
+Lavazza,Brand
+Illy,Brand
+Nespresso,Brand
+Nintendo,Brand
+PlayStation,Brand
+Xbox,Brand
+Canon,Brand
+Nikon,Brand
+Visa,Brand
+Mastercard,Brand
+American Express,Brand
+Heineken,Brand
+Budweiser,Brand
+Nivea,Brand
+Colgate,Brand
+Dove,Brand
+Microsoft,Tecnologia
+Google,Tecnologia
+Meta,Tecnologia
+Nvidia,Tecnologia
+Intel,Tecnologia
+Adobe,Tecnologia
+OpenAI,Tecnologia
+Spotify,Tecnologia
+Oracle,Tecnologia
+Cisco,Tecnologia
+IBM,Tecnologia
+HP,Tecnologia
+Dell,Tecnologia
+Lenovo,Tecnologia
+Asus,Tecnologia
+Acer,Tecnologia
+MSI,Tecnologia
+Razer,Tecnologia
+Logitech,Tecnologia
+AMD,Tecnologia
+Qualcomm,Tecnologia
+Broadcom,Tecnologia
+TSMC,Tecnologia
+Salesforce,Tecnologia
+ServiceNow,Tecnologia
+Zoom,Tecnologia
+Slack,Tecnologia
+Discord,Tecnologia
+Telegram,Tecnologia
+WhatsApp,Tecnologia
+Uber,Tecnologia
+Airbnb,Tecnologia
+Booking.com,Tecnologia
+Expedia,Tecnologia
+eBay,Tecnologia
+PayPal,Tecnologia
+Stripe,Tecnologia
+Square,Tecnologia
+Shopify,Tecnologia
+Netflix,Tecnologia
+Hulu,Tecnologia
+Disney+,Tecnologia
+Paramount+,Tecnologia
+Apple TV+,Tecnologia
+Pinterest,Tecnologia
+Snapchat,Tecnologia
+Reddit,Tecnologia
+TikTok,Tecnologia
+GitHub,Tecnologia
+Stack Overflow,Tecnologia
+ChatGPT,Tecnologia
+Claude,Tecnologia
+Midjourney,Tecnologia
+Gemini,Tecnologia
+Stable Diffusion,Tecnologia
+Ferrari,Auto
+Lamborghini,Auto
+Porsche,Auto
+BMW,Auto
+Mercedes-Benz,Auto
+Audi,Auto
+Fiat,Auto
+Ford,Auto
+Tesla,Auto
+Maserati,Auto
+Jeep,Auto
+Alfa Romeo,Auto
+Lancia,Auto
+Pagani,Auto
+Bugatti,Auto
+McLaren,Auto
+Aston Martin,Auto
+Rolls-Royce,Auto
+Bentley,Auto
+Jaguar,Auto
+Land Rover,Auto
+Volvo,Auto
+Volkswagen,Auto
+Opel,Auto
+Renault,Auto
+Peugeot,Auto
+Citroën,Auto
+Dacia,Auto
+Seat,Auto
+Skoda,Auto
+Honda,Auto
+Nissan,Auto
+Mazda,Auto
+Subaru,Auto
+Mitsubishi,Auto
+Suzuki,Auto
+Hyundai,Auto
+Kia,Auto
+BYD,Auto
+Lucid Motors,Auto
+Rivian,Auto
+Polestar,Auto
+Toyota Corolla,Auto
+Honda Civic,Auto
+Ford F-150,Auto
+Volkswagen Golf,Auto
+Fiat 500,Auto
+Porsche 911,Auto
+Cristiano Ronaldo,Sportivo
+Lionel Messi,Sportivo
+LeBron James,Sportivo
+Lewis Hamilton,Sportivo
+Jannik Sinner,Sportivo
+Valentino Rossi,Sportivo
+Federica Pellegrini,Sportivo
+Michael Jordan,Sportivo
+Roger Federer,Sportivo
+Serena Williams,Sportivo
+Kylian Mbappé,Sportivo
+Charles Leclerc,Sportivo
+Rafael Nadal,Sportivo
+Novak Djokovic,Sportivo
+Carlos Alcaraz,Sportivo
+Tiger Woods,Sportivo
+Max Verstappen,Sportivo
+Lando Norris,Sportivo
+George Russell,Sportivo
+Fernando Alonso,Sportivo
+Stephen Curry,Sportivo
+Kevin Durant,Sportivo
+Giannis Antetokounmpo,Sportivo
+Luka Doncic,Sportivo
+Tom Brady,Sportivo
+Patrick Mahomes,Sportivo
+Shohei Ohtani,Sportivo
+Usain Bolt,Sportivo
+Simone Biles,Sportivo
+Michael Phelps,Sportivo
+Bebe Vio,Sportivo
+Gianmarco Tamberi,Sportivo
+Marcell Jacobs,Sportivo
+Filippo Tortu,Sportivo
+Paola Egonu,Sportivo
+Francesco Totti,Sportivo
+Alessandro Del Piero,Sportivo
+Roberto Baggio,Sportivo
+Zinedine Zidane,Sportivo
+Ronaldinho,Sportivo
+Pele,Sportivo
+Diego Maradona,Sportivo
+Zlatan Ibrahimovic,Sportivo
+Erling Haaland,Sportivo
+Harry Kane,Sportivo
+Mohamed Salah,Sportivo
+Neymar Jr,Sportivo
+Lamine Yamal,Sportivo
+Coco Gauff,Sportivo
+Mikaela Shiffrin,Sportivo
+Tadej Pogacar,Sportivo
+Remco Evenepoel,Sportivo
+Leonardo DiCaprio,Attore
+Margot Robbie,Attore
+Tom Cruise,Attore
+Zendaya,Attore
+Robert Downey Jr.,Attore
+Scarlett Johansson,Attore
+Brad Pitt,Attore
+Jennifer Lawrence,Attore
+Meryl Streep,Attore
+Johnny Depp,Attore
+Tom Hanks,Attore
+Denzel Washington,Attore
+Morgan Freeman,Attore
+Al Pacino,Attore
+Robert De Niro,Attore
+Christian Bale,Attore
+Cillian Murphy,Attore
+Emma Stone,Attore
+Ryan Gosling,Attore
+Timothée Chalamet,Attore
+Florence Pugh,Attore
+Anya Taylor-Joy,Attore
+Benedict Cumberbatch,Attore
+Keanu Reeves,Attore
+Will Smith,Attore
+Dwayne Johnson,Attore
+Vin Diesel,Attore
+Gal Gadot,Attore
+Natalie Portman,Attore
+Anne Hathaway,Attore
+Pierfrancesco Favino,Attore
+Toni Servillo,Attore
+Luca Marinelli,Attore
+Alessandro Borghi,Attore
+Miriam Leone,Attore
+Matilda De Angelis,Attore
+Sophia Loren,Attore
+Marcello Mastroianni,Attore
+Giancarlo Giannini,Attore
+Monica Bellucci,Attore
+Paola Cortellesi,Attore
+Joaquin Phoenix,Attore
+Austin Butler,Attore
+Barry Keoghan,Attore
+Jenna Ortega,Attore
+Pedro Pascal,Attore
+Instagram,Social Network
+TikTok,Social Network
+LinkedIn,Social Network
+YouTube,Social Network
+Pinterest,Social Network
+Snapchat,Social Network
+Threads,Social Network
+Reddit,Social Network
+Tumblr,Social Network
+Twitch,Social Network
+Facebook,Social Network
+Telegram,Social Network
+WhatsApp,Social Network
+Discord,Social Network
+Spaghetti,Cibo
+Pizza,Cibo
+Sushi,Cibo
+Burger,Cibo
+Tacos,Cibo
+Lasagna,Cibo
+Gelato,Cibo
+Croissant,Cibo
+Paella,Cibo
+Ramen,Cibo
+Risotto,Cibo
+Carbonara,Cibo
+Amatriciana,Cibo
+Gnocchi,Cibo
+Tiramisù,Cibo
+Cannolo,Cibo
+Panettone,Cibo
+Pesto,Cibo
+Focaccia,Cibo
+Kebab,Cibo
+Falafel,Cibo
+Hummus,Cibo
+Curry,Cibo
+Dim Sum,Cibo
+Pad Thai,Cibo
+Bibimbap,Cibo
+Ceviche,Cibo
+Guacamole,Cibo
+Steak,Cibo
+Fish and Chips,Cibo
+Bratwurst,Cibo
+Fonduta,Cibo
+Ratatouille,Cibo
+Quiche,Cibo
+Macarons,Cibo
+Pancake,Cibo
+Waffle,Cibo
+Brownie,Cibo
+Cheesecake,Cibo
+Muffin,Cibo
+Tortellini,Cibo
+Cotoletta,Cibo
+Ossobuco,Cibo
+Bistecca alla Fiorentina,Cibo
+Arancino,Cibo
+Orecchiette,Cibo
+Polenta,Cibo
+Cassata,Cibo
+Albert Einstein,Scienziato
+Isaac Newton,Scienziato
+Marie Curie,Scienziato
+Galileo Galilei,Scienziato
+Charles Darwin,Scienziato
+Nikola Tesla,Scienziato
+Stephen Hawking,Scienziato
+Ada Lovelace,Scienziato
+Alan Turing,Scienziato
+Leonardo da Vinci,Scienziato
+Niels Bohr,Scienziato
+Max Planck,Scienziato
+Enrico Fermi,Scienziato
+Richard Feynman,Scienziato
+Louis Pasteur,Scienziato
+Gregor Mendel,Scienziato
+Thomas Edison,Scienziato
+Alexander Fleming,Scienziato
+Rosalind Franklin,Scienziato
+James Watson,Scienziato
+Katherine Johnson,Scienziato
+Carl Sagan,Scienziato
+Neil deGrasse Tyson,Scienziato
+Colosseo,Monumento
+Torre Eiffel,Monumento
+Statua della Libertà,Monumento
+Piramide di Giza,Monumento
+Taj Mahal,Monumento
+Grande Muraglia Cinese,Monumento
+Machu Picchu,Monumento
+Sagrada Familia,Monumento
+Duomo di Milano,Monumento
+Torre di Pisa,Monumento
+Pantheon,Monumento
+Fontana di Trevi,Monumento
+Cristo Redentore,Monumento
+Big Ben,Monumento
+Arc de Triomphe,Monumento
+Petra,Monumento
+Angkor Wat,Monumento
+Alhambra,Monumento
+Empire State Building,Monumento
+Burj Khalifa,Monumento
+Acropoli di Atene,Monumento
+The Godfather,Film
+Pulp Fiction,Film
+Inception,Film
+Interstellar,Film
+The Matrix,Film
+Star Wars,Film
+Harry Potter,Film
+Lord of the Rings,Film
+Titanic,Film
+The Dark Knight,Film
+Forrest Gump,Film
+Schindler's List,Film
+Fight Club,Film
+The Shawshank Redemption,Film
+Gladiator,Film
+Parasite,Film
+Joker,Film
+Spider-Man: No Way Home,Film
+Avengers: Endgame,Film
+Avatar,Film
+The Lion King,Film
+Toy Story,Film
+Finding Nemo,Film
+Shrek,Film
+Seven,Film
+The Silence of the Lambs,Film
+Goodfellas,Film
+Back to the Future,Film
+Dante Alighieri,Scrittore
+William Shakespeare,Scrittore
+Giacomo Leopardi,Scrittore
+Alessandro Manzoni,Scrittore
+Virginia Woolf,Scrittore
+Ernest Hemingway,Scrittore
+Franz Kafka,Scrittore
+Gabriel García Márquez,Scrittore
+Italo Calvino,Scrittore
+Jane Austen,Scrittore
+Leo Tolstoy,Scrittore
+Fyodor Dostoevsky,Scrittore
+Marcel Proust,Scrittore
+James Joyce,Scrittore
+George Orwell,Scrittore
+J.R.R. Tolkien,Scrittore
+Agatha Christie,Scrittore
+Stephen King,Scrittore
+Umberto Eco,Scrittore
+Pier Paolo Pasolini,Scrittore
+Charles Bukowski,Scrittore
+Oscar Wilde,Scrittore
+Edgar Allan Poe,Scrittore
+Mark Twain,Scrittore
+J.K. Rowling,Scrittore
+Haruki Murakami,Scrittore
+Isabel Allende,Scrittore
+Pablo Neruda,Scrittore
+Federico García Lorca,Scrittore
+Victor Hugo,Scrittore
+OLED TV,Tecnologia
+5G,Tecnologia
+Blockchain,Tecnologia
+Quantum Computing,Tecnologia
+Virtual Reality,Tecnologia
+Augmented Reality,Tecnologia
+Internet of Things,Tecnologia
+Cloud Computing,Tecnologia
+Cybersecurity,Tecnologia
+Edge Computing,Tecnologia
+Cacio e Pepe,Cibo
+Gricia,Cibo
+Arancina,Cibo
+Culurgiones,Cibo
+Malloreddus,Cibo
+Pappa al pomodoro,Cibo
+Ribollita,Cibo
+Lampredotto,Cibo
+Piadina Romagnola,Cibo
+Gnocco Fritto,Cibo
+Tigelle,Cibo
+Seadas,Cibo
+Pizzoccheri,Cibo
+Canederli,Cibo
+Speck,Cibo
+Bresaola,Cibo
+Mozzarella di Bufala,Cibo
+Burrata,Cibo
+Pecorino Romano,Cibo
+Parmigiano Reggiano,Cibo
+Gorgonzola,Cibo
+Taleggio,Cibo
+Asiago,Cibo
+Prosciutto di Parma,Cibo
+Prosciutto San Daniele,Cibo
+Salame Felino,Cibo
+Finocchiona,Cibo
+Nduja,Cibo
+Pane Carasau,Cibo
+Focaccia di Recco,Cibo
+Pesto alla Genovese,Cibo
+Salsa di Noci,Cibo
+Ragù alla Bolognese,Cibo
+Pasta alla Norma,Cibo
+Pasta con le Sarde,Cibo
+Fegato alla Veneziana,Cibo
+Sarde in Saor,Cibo
+Baccalà alla Vicentina,Cibo
+Polenta e Osei,Cibo
+Cjarsons,Cibo
+Vincisgrassi,Cibo
+Olive Ascolane,Cibo
+Arrosticini,Cibo
+Spaghetti alla Chitarra,Cibo
+Tiella di Gaeta,Cibo
+Sartù di Riso,Cibo
+Pastiera Napoletana,Cibo
+Sfogliatella Riccia,Cibo
+Sfogliatella Frolla,Cibo
+Babà al Rum,Cibo
+Zuppa Inglese,Cibo
+Bonet,Cibo
+Gianduiotto,Cibo
+Torrone di Cremona,Cibo
+Panforte di Siena,Cibo
+Ricciarelli,Cibo
+Cantucci di Prato,Cibo
+Baci di Dama,Cibo
+Amaretti di Saronno,Cibo
+Pandoro di Verona,Cibo
+Colomba Pasquale,Cibo
+Mustaccioli,Cibo
+Roccocò,Cibo
+Struffoli,Cibo
+Cartellate,Cibo
+Orecchiette alle Cime di Rapa,Cibo
+Fave e Cicoria,Cibo
+Bombette Pugliesi,Cibo
+Panzerotto,Cibo
+Rustico Leccese,Cibo
+Pasticciotto,Cibo
+Caciocavallo Silano,Cibo
+Pane di Altamura,Cibo
+Clementine di Calabria,Cibo
+Pistacchio di Bronte,Cibo
+Mandorle d'Avola,Cibo
+Bottarga di Muggine,Cibo
+Spaghetti alla Bottarga,Cibo
+Porceddu,Cibo
+Zuppa Gallurese,Cibo
+Pane Frattau,Cibo
+Culurgiones d'Ogliastra,Cibo
+Gattò di Patate,Cibo
+Crocchè,Cibo
+Frittata di Pasta,Cibo
+Suppli al Telefono,Cibo
+Abbacchio a Scottadito,Cibo
+Coda alla Vaccinara,Cibo
+Trippa alla Romana,Cibo
+Carciofi alla Giudia,Cibo
+Carciofi alla Romana,Cibo
+Puntarelle con Alici,Cibo
+Spaghetti alle Vongole,Cibo
+Fritto Misto di Pesce,Cibo
+Impepata di Cozze,Cibo
+Zuppa di Pesce,Cibo
+Cacciucco alla Livornese,Cibo
+Buridda,Cibo
+Cappon Magro,Cibo
+Trofie al Pesto,Cibo
+Pansotti,Cibo
+Corzetti,Cibo
+Testaroli,Cibo
+Panigacci,Cibo
+Farinata di Ceci,Cibo
+Panissa,Cibo
+Farinata di Zucca,Cibo
+Agnolotti del Plin,Cibo
+Tajarin al Tartufo,Cibo
+Brasato al Barolo,Cibo
+Bagna Cauda,Cibo
+Vitello Tonnato,Cibo
+Finanziaria,Cibo
+Fritto Misto alla Piemontese,Cibo
+Ravioli di Zucca,Cibo
+Tortelli di Zucca,Cibo
+Casoncelli,Cibo
+Scarpinocc,Cibo
+Risotto alla Milanese,Cibo
+Risotto alla Certosina,Cibo
+Risotto al Pesce Persico,Cibo
+Polenta Taragna,Cibo
+Sciatt,Cibo
+Chisciöi,Cibo
+Manzo all'Olio,Cibo
+Spiedo Bresciano,Cibo
+Cassoeula,Cibo
+Cotechino con Lenticchie,Cibo
+Zampone di Modena,Cibo
+Erbazzone,Cibo
+Gnocco al Forno,Cibo
+Crescentina,Cibo
+Borlengo,Cibo
+Salama da Sugo,Cibo
+Pasticcio di Maccheroni,Cibo
+Cappellacci di Zucca,Cibo
+Passatelli in Brodo,Cibo
+Cappelletti in Brodo,Cibo
+Tagliatelle al Ragù,Cibo
+Lasagne Verdi,Cibo
+Gramigna con Salsiccia,Cibo
+Friggione,Cibo
+Cotoletta alla Bolognese,Cibo
+Certosino di Bologna,Cibo
+Tenerina,Cibo
+Pampepato,Cibo
+Torta Barozzi,Cibo
+Spongata,Cibo
+Anolini in Brodo,Cibo
+Tortelli d'Erbetta,Cibo
+Rosa di Parma,Cibo
+Bomba di Riso,Cibo
+Culatello di Zibello,Cibo
+Coppa Piacentina,Cibo
+Salame Piacentino,Cibo
+Pisarei e Fasö,Cibo
+Tortelli con la Coda,Cibo
+Paniscia Novarese,Cibo
+Panissa Vercellese,Cibo
+Gnocchi di Patate,Cibo
+Gnocchi alla Romana,Cibo
+Gnocchi di Zucca,Cibo
+Gnocchi di Ricotta,Cibo
+Canederli allo Speck,Cibo
+Canederli al Formaggio,Cibo
+Canederli agli Spinaci,Cibo
+Schlutzkrapfen,Cibo
+Spatzle,Cibo
+Knodel,Cibo
+Strudel di Mele,Cibo
+Zelten,Cibo
+Krapfen,Cibo
+Sacher Torte,Cibo
+Linzer Torte,Cibo
+Kugelhupf,Cibo
+Kaiserschmarrn,Cibo
+Torta di Grano Saraceno,Cibo
+Torta di Mele,Cibo
+Frittelle di Mele,Cibo
+Grostoli,Cibo
+Strauben,Cibo
+Sopressa Vicentina,Cibo
+Radicchio Rosso di Treviso,Cibo
+Asparago Bianco di Bassano,Cibo
+Riso Nano Vialone Veronese,Cibo
+Risi e Bisi,Cibo
+Pasta e Fasioi,Cibo
+Bigoli in Salsa,Cibo
+Casunziei,Cibo
+Baccalà alla Mantecata,Cibo
+Schie con Polenta,Cibo
+Moeca Fritta,Cibo
+Bisato in Umido,Cibo
+Fritola Veneziana,Cibo
+Galani,Cibo
+Pandoro,Cibo
+Torta delle Rose,Cibo
+Sbrisolona,Cibo
+Anello di Monaco,Cibo
+Elmo di Fieramosca,Cibo
+Gubana,Cibo
+Presnitz,Cibo
+Putizza,Cibo
+Pinza Triestina,Cibo
+Jota,Cibo
+Frico,Cibo
+Musetto e Brovada,Cibo
+Cjarsons di Paularo,Cibo
+Prosciutto di Sauris,Cibo
+Montasio,Cibo
+Caciocavallo Podolico,Cibo
+Soppressata di Calabria,Cibo
+Pancetta tesa,Cibo
+Guanciale di Norcia,Cibo
+Lardo di Colonnata,Cibo
+Finocchiona Toscana,Cibo
+Prosciutto Toscano,Cibo
+Salame Toscano,Cibo
+Crostoni ai Fegatini,Cibo
+Panzanella,Cibo
+Acquacotta,Cibo
+Pici all'Aglione,Cibo
+Pappardelle al Cinghiale,Cibo
+Scottiglia,Cibo
+Trippa alla Fiorentina,Cibo
+Peposo all'Imprunetina,Cibo
+Castagnaccio,Cibo
+Necci,Cibo
+Frittelle di Castagne,Cibo
+Brigidini,Cibo
+Pan dei Santi,Cibo
+Cavallucci,Cibo
+Copate,Cibo
+Brutti ma Buoni,Cibo
+Biscotti di Prato,Cibo
+Torta Co' Bischeri,Cibo
+Buccellato di Lucca,Cibo
+Spongata di Fivizzano,Cibo
+Torta d'Erbe,Cibo
+Testaroli della Lunigiana,Cibo
+Panigacci di Podenzana,Cibo
+Marroni di Marradi,Cibo
+Farina di Neccio,Cibo
+Farro della Garfagnana,Cibo
+Lenticchia di Castelluccio,Cibo
+Zafferano di Cascia,Cibo
+Tartufo Nero di Norcia,Cibo
+Tartufo Bianco di Alba,Cibo
+Ciauscolo,Cibo
+Vincisgrassi Maceratesi,Cibo
+Maccheroncini di Campofilone,Cibo
+Passatelli Marchigiani,Cibo
+Brodetto di Pesce,Cibo
+Stoccafisso all'Anconetana,Cibo
+Coniglio in Porchetta,Cibo
+Frustingo,Cibo
+Calcioni,Cibo
+Piconi,Cibo
+Lonza di Capofitto,Cibo
+Mazzafegati,Cibo
+Salsiccia di Fegato,Cibo
+Porchetta di Ariccia,Cibo
+Coppiette di Maiale,Cibo
+Spaghetti alla Carbonara,Cibo
+Penne all'Arrabbiata,Cibo
+Spaghetti all'Amatriciana,Cibo
+Rigatoni alla Pajata,Cibo
+Saltimbocca alla Romana,Cibo
+Abbacchio al Forno,Cibo
+Suppli di Riso,Cibo
+Fiori di Zucca Fritti,Cibo
+Filetti di Baccalà Fritti,Cibo
+Pizza Bianca Romana,Cibo
+Pizza alla Pala,Cibo
+Pizza al Taglio,Cibo
+Maritozzo con la Panna,Cibo
+Grattachecca,Cibo
+Pangiallo Romano,Cibo
+Pupazze di Frascati,Cibo
+Ciambelline al Vino,Cibo
+Nociata,Cibo
+Spaghetti alla Chitarra con Pallottine,Cibo
+Timballo Abruzzese,Cibo
+Scrippelle 'Mbusse,Cibo
+Mazzarelle,Cibo
+Arrosticini di Pecora,Cibo
+Pecora alla Callara,Cibo
+Brodetto alla Vastese,Cibo
+Confetti di Sulmona,Cibo
+Parrozzo,Cibo
+Ferratelle,Cibo
+Sise delle Monache,Cibo
+Bocconotti,Cibo
+Cavatelli al Sugo di Maiale,Cibo
+Fusilli alla Potentina,Cibo
+Lagane e Ceci,Cibo
+Rafanata,Cibo
+Baccalà alla Lucana,Cibo
+Ciammotta,Cibo
+Cutturidd,Cibo
+Strazzate,Cibo
+Scorzette,Cibo
+Sospiri di Bisceglie,Cibo
+Cartellate al Vincotto,Cibo
+Purceddhuzzi,Cibo
+Tiella di Riso Patate e Cozze,Cibo
+Orecchiette alle Cime di Rapa,Cibo
+Focaccia Barese,Cibo
+Altamura Bread,Cibo
+Capocollo di Martina Franca,Cibo
+Burrata di Andria,Cibo
+Taralli Pugliesi,Cibo
+Frisella,Cibo
+Puccia Salentina,Cibo
+Pezzetti di Cavallo,Cibo
+Ciceri e Tria,Cibo
+Pittule,Cibo
+Pasticciotto Leccese,Cibo
+Cupeta,Cibo
+Morsello di Catanzaro,Cibo
+Stocco di Cittanova,Cibo
+Sardella di Crucoli,Cibo
+Pitta 'mpigliata,Cibo
+Nacatole,Cibo
+Torrone di Bagnara,Cibo
+Caciocavallo di Ciminà,Cibo
+Pecorino del Monte Poro,Cibo
+Cipolla Rossa di Tropea,Cibo
+Pasta alla Norma,Cibo
+Pasta con le Sarde,Cibo
+Anelletti al Forno,Cibo
+Cous Cous di Pesce,Cibo
+Caponata di Melanzane,Cibo
+Sarde a Beccafico,Cibo
+Involtini di Pesce Spada,Cibo
+Farsumagru,Cibo
+Stigghiola,Cibo
+Pane e Panelle,Cibo
+Pani ca Meusa,Cibo
+Sfincione,Cibo
+Arancino al Burro,Cibo
+Arancino al Ragù,Cibo
+Cannolo Siciliano,Cibo
+Cassata Siciliana,Cibo
+Frutta Martorana,Cibo
+Granita al Pistacchio,Cibo
+Brioche col Tuppo,Cibo
+Modica Chocolate,Cibo
+Pignolata,Cibo
+Cucciddata,Cibo
+Sfinci di San Giuseppe,Cibo
+Genovesi di Erice,Cibo
+Mpanatigghi,Cibo
+Minne di Sant'Agata,Cibo
+Torta Setteveli,Cibo
+Malloreddus alla Campidanese,Cibo
+Culurgiones Ogliastrini,Cibo
+Zuppa Gallurese,Cibo
+Pane Frattau,Cibo
+Pane Carasau,Cibo
+Porceddu allo Spiedo,Cibo
+Cordula con Piselli,Cibo
+Bottarga di Muggine,Cibo
+Burrida,Cibo
+Arselle e Fregola,Cibo
+Spaghetti con Arselle,Cibo
+Panada,Cibo
+Sebadas al Miele,Cibo
+Aranzada,Cibo
+Pardulas,Cibo
+Amaretti Sardi,Cibo
+Papassini,Cibo
+Savoiardi Sardi,Cibo
+Torrone di Tonara,Cibo
