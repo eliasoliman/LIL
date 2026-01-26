@@ -11,7 +11,6 @@ import os
 
 app = FastAPI()
 
-# Permette a Vue (che gira su una porta diversa) di comunicare con FastAPI
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
