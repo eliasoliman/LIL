@@ -1,346 +1,280 @@
 <script setup>
 import { ref, nextTick, watch } from 'vue';
 
-// --- STATO DELL'APPLICAZIONE ---
+// --- STATO ---
 const userInput = ref('');
-const isChatActive = ref(false);
-const isTyping = ref(false);
-const messagesContainer = ref(null);
-
-// Cronologia messaggi
 const messages = ref([]);
+const isChatActive = ref(false);
+const chatContainer = ref(null);
+const isBotTyping = ref(false);
 
 // --- LOGICA ---
 
-// 1. "Effetto Gemini": Appena l'utente scrive, nasconde il benvenuto
-watch(userInput, (newVal) => {
-  if (newVal.trim().length > 0 && !isChatActive.value) {
-    startChatSession();
+// Funzione per scorrere in basso automaticamente
+const scrollToBottom = async () => {
+  await nextTick();
+  if (chatContainer.value) {
+    chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
   }
-});
-
-const startChatSession = () => {
-  isChatActive.value = true;
-  // Focus e scroll
-  nextTick(() => {
-    scrollToBottom();
-  });
 };
 
-// 2. Invio Messaggio
-const sendMessage = () => {
+// Osserva i messaggi e scrolla quando cambiano
+watch(messages, () => {
+  scrollToBottom();
+}, { deep: true });
+
+// Gestione invio messaggio
+const handleSend = () => {
   const text = userInput.value.trim();
   if (!text) return;
 
-  // Aggiungi messaggio utente
+  // 1. Attiva interfaccia chat se è il primo messaggio
+  if (!isChatActive.value) {
+    isChatActive.value = true;
+  }
+
+  // 2. Aggiungi messaggio utente
   messages.value.push({
     id: Date.now(),
     text: text,
     sender: 'user'
   });
 
-  userInput.value = '';
-  scrollToBottom();
+  userInput.value = ''; // Pulisci input
+  isBotTyping.value = true;
 
-  // Simula risposta Bot
-  isTyping.value = true;
-
+  // 3. Simula risposta Bot
   setTimeout(() => {
-    isTyping.value = false;
-    
     const risposte = [
-      "Sto elaborando la tua richiesta con i dati disponibili.",
-      "Interessante. Ecco cosa ho trovato nei miei archivi.",
-      "Posso aiutarti a espandere questo concetto.",
-      "Ho generato una risposta basata sul contesto fornito."
+      "Sto elaborando i dati richiesti...",
+      "Ho trovato una corrispondenza nei miei archivi.",
+      "Certamente. Ecco cosa posso dirti a riguardo.",
+      "Interessante punto di vista. Analizziamolo."
     ];
+    const randomResp = risposte[Math.floor(Math.random() * risposte.length)];
     
     messages.value.push({
       id: Date.now() + 1,
-      text: risposte[Math.floor(Math.random() * risposte.length)],
+      text: randomResp,
       sender: 'bot'
     });
     
-    scrollToBottom();
-  }, 1500);
-};
-
-// Utility Scroll
-const scrollToBottom = () => {
-  nextTick(() => {
-    if (messagesContainer.value) {
-      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
-      // Fallback per scroll finestra
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-  });
+    isBotTyping.value = false;
+  }, 1000);
 };
 </script>
 
 <template>
-  <div class="app-container">
+  <v-app class="lexis-app">
     
-    <header class="chat-header">
-      <div class="brand">
-        <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 16v-4"></path>
-          <path d="M12 8h.01"></path>
-        </svg>
-        <span>Nexus AI</span>
-      </div>
-    </header>
+    <v-app-bar flat height="80" class="chat-header">
+      <div class="brand">Lexis</div>
+    </v-app-bar>
 
-    <main class="main-area">
-      
-      <transition name="fade-up">
-        <div v-if="!isChatActive" class="welcome-container">
-          <div class="welcome-content">
-            <h1 class="gradient-title">Ciao!</h1>
-            <h2 class="subtitle-text">Come posso esserti utile oggi?</h2>
-          </div>
-        </div>
-      </transition>
-
-      <transition name="fade-in">
-        <div v-show="isChatActive" class="chat-messages" ref="messagesContainer">
-          <div class="messages-inner">
-            <div 
-              v-for="msg in messages" 
-              :key="msg.id" 
-              class="message" 
-              :class="msg.sender"
-            >
-              {{ msg.text }}
-            </div>
-          </div>
-        </div>
-      </transition>
-
-    </main>
-
-    <footer class="footer-area">
-      <div class="footer-content">
+    <v-main class="main-area">
+      <v-container class="fill-height d-flex flex-column justify-center align-center position-relative">
+        
         <transition name="fade">
-          <div v-if="isTyping" class="status-indicator">
-            <span class="sparkle">✨</span>
-            <span>Nexus sta scrivendo...</span>
+          <div v-if="!isChatActive" class="welcome-container text-center">
+            <h1>Ciao, Sono Lexis</h1>
+            <h2>Che gioco di parole posso creare per te?</h2>
           </div>
         </transition>
 
-        <div class="input-wrapper" :class="{ 'focused': userInput.length > 0 }">
-          <input 
-            type="text" 
-            v-model="userInput" 
-            @keydown.enter="sendMessage"
-            placeholder="Chiedi qualsiasi cosa..." 
-            autocomplete="off"
+        <transition name="fade">
+          <div 
+            v-show="isChatActive" 
+            ref="chatContainer"
+            class="chat-messages"
           >
-          <button class="send-btn" @click="sendMessage">
-            <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </footer>
+            <div class="messages-container">
+              <div 
+                v-for="msg in messages" 
+                :key="msg.id" 
+                :class="['message', msg.sender]"
+              >
+                {{ msg.text }}
+              </div>
+              
+              <div v-if="isBotTyping" class="message bot typing">
+                ...
+              </div>
+            </div>
+          </div>
+        </transition>
 
-  </div>
+      </v-container>
+    </v-main>
+
+    <v-footer app height="100" class="footer-area">
+      <div class="input-wrapper">
+        <input 
+          v-model="userInput" 
+          type="text" 
+          placeholder="Dimmi un Tema e una Categoria..." 
+          @keypress.enter="handleSend"
+          autocomplete="off"
+        >
+        <button @click="handleSend" class="send-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </v-footer>
+  </v-app>
 </template>
 
 <style scoped>
-.app-container {
-  --bg-color: #050505;
-  --text-primary: #ffffff;
-  --text-secondary: #888888;
-  --msg-bot-bg: #141414;
-  --msg-user-bg: #262626;
-  --accent-color: #4f46e5;
-  --accent-glow: rgba(79, 70, 229, 0.4);
-  --input-bg: rgba(20, 20, 20, 0.9);
-  --input-border: rgba(255, 255, 255, 0.1);
+/* --- STILI OVERRIDE/CUSTOM --- */
+/* Manteniamo i colori originali sovrascrivendo i default di Vuetify dove serve */
 
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--bg-color);
-  background-image: radial-gradient(circle at 50% 0%, #1a1a2e 0%, var(--bg-color) 60%);
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.lexis-app {
+  background-color: #141416 !important;
+  color: #F3F4F6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* HEADER */
 .chat-header {
-  height: 80px;
-  padding: 0 40px;
+  background-color: #141416 !important;
+  border-bottom: 1px solid #262629;
   display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  z-index: 10;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-.logo-svg { width: 22px; height: 22px; stroke: var(--text-primary); }
-
-.main-area {
-  flex: 1;
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.welcome-container {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0 40px;
-  max-width: 900px;
-  margin: 0 auto;
-  right: 0;
 }
 
-.gradient-title {
-  font-size: 3.5rem;
+/* Per centrare il titolo nell'app bar di Vuetify */
+:deep(.v-toolbar__content) {
+  justify-content: center;
+}
+
+.brand {
   font-weight: 600;
-  margin-bottom: 10px;
-  letter-spacing: -1.5px;
-  background: linear-gradient(120deg, #ffffff 0%, #888888 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+  color: #F3F4F6;
 }
 
-.subtitle-text {
+/* WELCOME SCREEN */
+.welcome-container h1 {
+  color: #F3F4F6;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-container h2 {
   font-size: 1.5rem;
-  font-weight: 300;
-  color: #666;
+  font-weight: 400;
+  color: #9CA3AF;
 }
 
+/* CHAT AREA */
 .chat-messages {
-  flex: 1;
   width: 100%;
+  max-width: 900px;
+  height: 100%;
   overflow-y: auto;
   padding: 20px 0;
-  display: flex;
-  flex-direction: column;
+  /* Nascondi scrollbar nativa per estetica */
+  scrollbar-width: thin;
+  scrollbar-color: #363639 #141416;
 }
 
-.messages-inner {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 40px;
+.messages-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   padding-bottom: 20px;
 }
 
 .message {
   max-width: 80%;
-  padding: 18px 24px;
-  border-radius: 16px;
+  padding: 15px 25px;
+  border-radius: 20px;
   font-size: 1rem;
-  line-height: 1.6;
-  font-weight: 300;
-  position: relative;
+  line-height: 1.5;
+  animation: popIn 0.3s ease forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .message.bot {
   align-self: flex-start;
-  background-color: var(--msg-bot-bg);
-  color: #ddd;
-  border: 1px solid rgba(255,255,255,0.05);
-  border-bottom-left-radius: 4px;
+  background-color: #262629;
+  color: #E5E7EB;
+  border: 1px solid #363639;
 }
 
 .message.user {
   align-self: flex-end;
-  background-color: var(--msg-user-bg);
-  color: #fff;
-  border-bottom-right-radius: 4px;
+  background-color: #4f46e5;
+  color: #FFFFFF;
 }
 
-/* --- FOOTER --- */
+/* FOOTER & INPUT */
 .footer-area {
-  width: 100%;
-  padding: 20px 40px 40px 40px;
+  background-color: #141416 !important;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(to top, var(--bg-color) 20%, transparent 100%);
-  flex-shrink: 0;
-  z-index: 20;
+  justify-content: center;
+  align-items: flex-start; /* Allinea in alto nel footer */
+  padding-top: 20px;
 }
-
-.footer-content { width: 100%; max-width: 900px; }
-
-.status-indicator {
-  height: 24px; margin-bottom: 10px; font-size: 0.8rem; color: var(--accent-color);
-  display: flex; align-items: center; gap: 8px; font-weight: 500;
-  padding-left: 10px;
-}
-@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-.sparkle { animation: pulse 1.5s infinite; }
 
 .input-wrapper {
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 6px 6px 6px 24px;
-  display: flex; align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-}
-
-.input-wrapper.focused, 
-.input-wrapper:focus-within {
-  border-color: rgba(79, 70, 229, 0.4);
-  box-shadow: 0 0 25px rgba(79, 70, 229, 0.15);
+  width: 100%;
+  max-width: 900px;
+  background-color: #1c1c1f;
+  border: 1px solid #363639;
+  border-radius: 50px;
+  padding: 8px 10px 8px 25px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .input-wrapper input {
-  flex: 1; background: transparent; border: none; outline: none;
-  font-size: 1rem; color: #fff; padding: 12px 0; font-weight: 300;
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #F3F4F6;
+  padding: 10px 0;
 }
-.input-wrapper input::placeholder { color: #555; }
 
-/* Button */
+.input-wrapper input::placeholder {
+  color: #6B7280;
+}
+
 .send-btn {
-  background-color: var(--accent-color);
-  border: none; width: 48px; height: 48px; border-radius: 12px;
-  cursor: pointer; display: flex; justify-content: center; align-items: center;
-  transition: all 0.2s; margin-left: 10px;
-  box-shadow: 0 0 15px var(--accent-glow);
+  background-color: #4f46e5;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: background-color 0.2s;
+  margin-left: 10px;
 }
-.send-btn:hover { background-color: #6366f1; transform: translateY(-1px); }
-.send-btn:active { transform: scale(0.95); }
-.send-icon { stroke: white; width: 20px; height: 20px; }
 
-.fade-up-enter-active, .fade-up-leave-active { transition: all 0.4s ease; }
-.fade-up-enter-from, .fade-up-leave-to { opacity: 0; transform: translateY(-20px); }
+.send-btn:hover {
+  background-color: #4338ca;
+}
 
-.fade-in-enter-active { transition: opacity 0.6s ease; }
-.fade-in-enter-from { opacity: 0; }
+/* Transizioni Vue */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
 
-.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
-
-@media (max-width: 600px) {
-  .chat-header, .welcome-container, .messages-inner, .footer-area { padding-left: 20px; padding-right: 20px; }
-  .gradient-title { font-size: 2.5rem; }
-  .subtitle-text { font-size: 1.2rem; }
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

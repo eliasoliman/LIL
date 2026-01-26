@@ -119,10 +119,10 @@ def genera_gioco(prompt):
                     }
 
     if not best_match: return "Nessun incastro trovato."
-    return f"\n🎭 GIOCO: {best_match['output']}\n(Da: {best_match['orig']} | Info: {best_match['info']})"
+    return f"\n GIOCO: {best_match['output']}\n(Da: {best_match['orig']} | Info: {best_match['info']})"
 
 if __name__ == "__main__":
-    print("--- GENERATORE V6 (Sillabico + Training Set) ---")
+    print("Prompt:")
     while True:
         p = input("\nInserisci Categoria e Tema: ")
         if p.lower() == 'exit': break
