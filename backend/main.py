@@ -18,7 +18,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- TUA LOGICA ORIGINALE ADATTATA ---
 try:
     nlp = spacy.load("it_core_news_lg")
 except:
