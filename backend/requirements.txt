@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pandas
+spacy
+pydantic
+fuzzywuzzy
+Levenshtein
+numpy
+pyphen
