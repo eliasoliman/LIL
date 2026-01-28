@@ -92,7 +92,13 @@ const getApiUrl = () => {
     return 'http://localhost:8000';
   }
   
-  // Ambienti cloud (Codespaces, Gitpod, etc.)
+  // GitHub Codespaces
+  if (hostname.includes('.app.github.dev') || hostname.includes('.githubpreview.dev')) {
+    // Sostituisce la porta del frontend (es. 5173) con 8000
+    return window.location.origin.replace(/-\d+\./, '-8000.');
+  }
+  
+  // Fallback
   return `${window.location.protocol}//${hostname}:8000`;
 };
 
