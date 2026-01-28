@@ -18,11 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-try:
-    nlp = spacy.load("it_core_news_lg")
-except:
-    nlp = spacy.load("it_core_news_md")
-
+nlp = spacy.load("it_core_news_lg")
 dic = pyphen.Pyphen(lang='it_IT')
 
 class GiocoRequest(BaseModel):
