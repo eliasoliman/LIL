@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import spacy
 import pandas as pd
@@ -12,8 +13,10 @@ import uvicorn
 
 app = FastAPI()
 
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PATH_CSV = os.path.join(BASE_DIR, 'nomi.csv')
+FRONTEND_DIR = os.path.join(os.path.dirname(BASE_DIR), 'dist') 
 
 # Configurazione CORS per permettere richieste da qualsiasi origine
 app.add_middleware(
@@ -140,6 +143,10 @@ async def genera(req: GiocoRequest):
                     }
 
     return best_match if best_match else {"errore": "Nessun incastro trovato"}
+
+# Servire i file statici del frontend
+if os.path.exists(FRONTEND_DIR):
+    app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="static")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
