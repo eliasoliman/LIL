@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 # Caricamento del modello linguistico italiano e del dizionario di sillabazione
-nlp = spacy.load("it_core_news_md")
+nlp = spacy.load("it_core_news_lg")
 dic = pyphen.Pyphen(lang='it_IT')
 
 class GiocoRequest(BaseModel):
