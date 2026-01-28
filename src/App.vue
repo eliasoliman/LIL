@@ -96,8 +96,12 @@ const sendMessage = async () => {
 
   try {
     // 2. Chiama il Backend
-    const response = await axios.post('http://127.0.0.1:8000/genera', {
-      prompt: userText
+    const apiUrl = window.location.hostname.includes('github.dev')
+    ? window.location.origin.replace(/:\d+/, ':8000')
+    : 'http://localhost:8000';
+  
+  const response = await axios.post(`${apiUrl}/genera`, {
+    prompt: userText
     })
 
     // 3. Aggiungi la CARD dell'AI
