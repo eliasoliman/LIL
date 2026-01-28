@@ -2,7 +2,7 @@ fastapi
 uvicorn
 pandas
 spacy
-it_core_md
+it_core_lg
 pydantic
 fuzzywuzzy
 Levenshtein
