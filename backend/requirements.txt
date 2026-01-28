@@ -7,4 +7,3 @@ fuzzywuzzy
 Levenshtein
 numpy
 pyphen
-concurrently

@@ -47,7 +47,7 @@
         <input 
           v-model="inputText"
           type="text"
-          placeholder="Dimmi un Tema e una Categoria..."
+          placeholder="Dimmi una Categoria e un Tema"
           @keyup.enter="sendMessage"
           class="text-input"
           :disabled="loading"
