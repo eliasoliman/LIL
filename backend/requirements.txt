@@ -2,7 +2,7 @@ fastapi
 uvicorn
 pandas
 spacy
-spacy download it_core_md
+it_core_md
 pydantic
 fuzzywuzzy
 Levenshtein
