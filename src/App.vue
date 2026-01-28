@@ -84,6 +84,18 @@ const scrollToBottom = async () => {
   }
 }
 
+const getApiUrl = () => {
+  const hostname = window.location.hostname;
+  
+  // Sviluppo locale
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:8000';
+  }
+  
+  // Ambienti cloud (Codespaces, Gitpod, etc.)
+  return `${window.location.protocol}//${hostname}:8000`;
+};
+
 const sendMessage = async () => {
   if (!inputText.value.trim() || loading.value) return
 
@@ -96,12 +108,8 @@ const sendMessage = async () => {
 
   try {
     // 2. Chiama il Backend
-    const apiUrl = window.location.hostname.includes('github.dev')
-    ? window.location.origin.replace(/:\d+/, ':8000')
-    : 'http://localhost:8000';
-  
-  const response = await axios.post(`${apiUrl}/genera`, {
-    prompt: userText
+    const response = await axios.post(`${getApiUrl()}/genera`, {
+      prompt: userText
     })
 
     // 3. Aggiungi la CARD dell'AI
