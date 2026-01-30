@@ -84,6 +84,24 @@ const scrollToBottom = async () => {
   }
 }
 
+const getApiUrl = () => {
+  const hostname = window.location.hostname;
+  
+  // Sviluppo locale
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:8000';
+  }
+  
+  // GitHub Codespaces
+  if (hostname.includes('.app.github.dev') || hostname.includes('.githubpreview.dev')) {
+    // Sostituisce la porta del frontend (es. 5173) con 8000
+    return window.location.origin.replace(/-\d+\./, '-8000.');
+  }
+  
+  // Fallback
+  return `${window.location.protocol}//${hostname}:8000`;
+};
+
 const sendMessage = async () => {
   if (!inputText.value.trim() || loading.value) return
 
